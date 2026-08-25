@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">萌宠桌面</string>
+    <string name="settings_title">设置</string>
+    <string name="hint_api_key">粘贴你的 DeepSeek API Key</string>
+    <string name="hint_nickname">他怎么称呼你（如：宝贝）</string>
+    <string name="save">保存</string>
+    <string name="show_him">把他放到桌面</string>
+    <string name="hide_him">把他藏起来</string>
+    <string name="open_settings">去设置</string>
+    <string name="need_key">先去设置里填一下 DeepSeek 钥匙，我才能陪你聊天呀~</string>
+    <string name="overlay_channel">桌面陪伴</string>
+    <string name="overlay_running">他正在桌面上陪着你</string>
+</resources>
