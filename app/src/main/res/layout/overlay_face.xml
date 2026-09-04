@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 桌面上那张悬浮的小圆脸 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- 桌面上那张悬浮的小圆脸 + 上方的字幕气泡 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="start">
 
     <ImageView
         android:id="@+id/faceImage"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/face_idle" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="270dp"
+        android:background="@drawable/caption_bg"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:layout_marginTop="6dp"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:visibility="gone"
+        android:text="" />
+
+</LinearLayout>

@@ -23,6 +23,7 @@ class Conversation(
             role = "system",
             content = Persona.systemPrompt(settings.nickname, memory.summary()),
         )
+        // 语言由人设的规则决定（默认英文，她要求时自然切中文），不再按输入硬性对齐
         val messages = listOf(system) + history
 
         val reply = replier.reply(messages)
@@ -31,6 +32,26 @@ class Conversation(
         trim()
         return reply
     }
+
+    /** 主动开口：用户一会儿没出声时，他自己找话说。 */
+    suspend fun proactive(): String {
+        val call = settings.nickname.ifBlank { "宝贝" }
+        val system = ChatMessage(
+            role = "system",
+            content = Persona.systemPrompt(settings.nickname, memory.summary()),
+        )
+        val nudge = ChatMessage(
+            role = "system",
+            content = "现在${call}有一小会儿没出声了。你主动开口说一句话——关心她、或撒个娇、或找个轻松话题、或夸夸她，" +
+                "口语一点，符合你粘人小狗男友的人设，并遵守上面的语言规则（默认英文）。",
+        )
+        val messages = listOf(system) + history + listOf(nudge)
+        val reply = replier.reply(messages)
+        history.add(ChatMessage("assistant", reply))
+        trim()
+        return reply
+    }
+
 
     private fun trim() {
         while (history.size > MAX_MESSAGES) history.removeAt(0)

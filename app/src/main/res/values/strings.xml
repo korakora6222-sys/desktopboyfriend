@@ -10,4 +10,6 @@
     <string name="need_key">先去设置里填一下 DeepSeek 钥匙，我才能陪你聊天呀~</string>
     <string name="overlay_channel">桌面陪伴</string>
     <string name="overlay_running">他正在桌面上陪着你</string>
+    <string name="hint_volc_appid">火山 APP ID（他的声音）</string>
+    <string name="hint_volc_token">火山 Access Token（他的声音）</string>
 </resources>

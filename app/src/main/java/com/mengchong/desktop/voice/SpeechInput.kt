@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.util.Log
 
 /**
  * 语音输入：用安卓系统自带的 SpeechRecognizer 把用户说的话转成文字。
@@ -17,7 +18,9 @@ class SpeechInput(private val context: Context) {
     private var recognizer: SpeechRecognizer? = null
 
     fun listen(onResult: (String) -> Unit, onError: (String) -> Unit) {
-        if (!SpeechRecognizer.isRecognitionAvailable(context)) {
+        val available = SpeechRecognizer.isRecognitionAvailable(context)
+        Log.d("MC-STT", "isRecognitionAvailable=$available")
+        if (!available) {
             onError("这台手机没有可用的语音识别服务")
             return
         }

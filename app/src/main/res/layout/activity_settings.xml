@@ -30,6 +30,32 @@
         android:inputType="text"
         android:autofillHints="" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="他的声音（火山引擎）"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/volcAppIdInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/hint_volc_appid"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/volcTokenInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/hint_volc_token"
+        android:inputType="textPassword"
+        android:autofillHints="" />
+
     <Button
         android:id="@+id/saveButton"
         android:layout_width="match_parent"

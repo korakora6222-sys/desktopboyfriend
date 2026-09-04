@@ -18,13 +18,19 @@ class SettingsActivity : AppCompatActivity() {
         val settings = SettingsStore(SharedPrefKVStore(this))
         val apiKeyInput = findViewById<EditText>(R.id.apiKeyInput)
         val nicknameInput = findViewById<EditText>(R.id.nicknameInput)
+        val volcAppIdInput = findViewById<EditText>(R.id.volcAppIdInput)
+        val volcTokenInput = findViewById<EditText>(R.id.volcTokenInput)
 
         apiKeyInput.setText(settings.apiKey)
         nicknameInput.setText(settings.nickname)
+        volcAppIdInput.setText(settings.volcAppId)
+        volcTokenInput.setText(settings.volcToken)
 
         findViewById<Button>(R.id.saveButton).setOnClickListener {
             settings.apiKey = apiKeyInput.text.toString().trim()
             settings.nickname = nicknameInput.text.toString().trim()
+            settings.volcAppId = volcAppIdInput.text.toString().trim()
+            settings.volcToken = volcTokenInput.text.toString().trim()
             Toast.makeText(this, "保存好啦~", Toast.LENGTH_SHORT).show()
             finish()
         }

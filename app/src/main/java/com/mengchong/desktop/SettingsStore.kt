@@ -46,9 +46,26 @@ class SettingsStore(private val kv: KVStore) {
         get() = kv.getBoolean(KEY_VISIBLE, true)
         set(value) = kv.putBoolean(KEY_VISIBLE, value)
 
+    // 火山引擎豆包语音的凭证（他的"嘴"和"耳朵"）
+    var volcAppId: String
+        get() = kv.getString(KEY_VOLC_APPID) ?: ""
+        set(value) = kv.putString(KEY_VOLC_APPID, value)
+
+    var volcToken: String
+        get() = kv.getString(KEY_VOLC_TOKEN) ?: ""
+        set(value) = kv.putString(KEY_VOLC_TOKEN, value)
+
+    // 他的音色（默认：少年梓辛 2.0，小奶狗系男声；2.0 音色是 _uranus_ 结尾）
+    var volcVoice: String
+        get() = kv.getString(KEY_VOLC_VOICE) ?: "zh_male_shaonianzixin_uranus_bigtts"
+        set(value) = kv.putString(KEY_VOLC_VOICE, value)
+
     companion object {
         private const val KEY_API = "api_key"
         private const val KEY_NICK = "nickname"
         private const val KEY_VISIBLE = "pet_visible"
+        private const val KEY_VOLC_APPID = "volc_appid"
+        private const val KEY_VOLC_TOKEN = "volc_token"
+        private const val KEY_VOLC_VOICE = "volc_voice"
     }
 }

@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // 火山引擎语音 SDK 仓库
+        maven { url = uri("https://artifact.bytedance.com/repository/Volcengine/") }
     }
 }
 
